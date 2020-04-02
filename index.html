@@ -178,7 +178,6 @@
 
         // update subtitles to the next one once the appropriate time comes
         video.ontimeupdate = () => {
-            console.log('timeupdate')
             const EPSILON = 0.2
             const { currentTime } = video
             const curIdx = beginTimes.reduce((acc, cur, idx) => Math.abs(currentTime - cur) < EPSILON ? idx : acc , null)
@@ -193,7 +192,7 @@
         video.onseeked = () => {
             const { currentTime } = video
             const gaussIdx = beginTimes.reduceRight((acc, cur, idx) =>
-                currentTime !== -1 && currentTime > cur ? idx : acc
+                acc === -1 && currentTime > cur ? idx : acc
             , -1)
 
             subIdx = gaussIdx
