@@ -12,11 +12,76 @@
         line-height: 1.8em;
         text-align: center;
         position: absolute;
+        height: auto;
+        width: auto;
         top: 440px;
+    }
+
+    .capword {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 3px;
+        position: relative;
     }
 
     .capword:hover {
         font-weight: bold;
+    }
+
+    .capword .popup {
+        font-size: 12px;
+        font-weight: normal;
+        visibility: hidden;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -200px;
+    }
+
+    .capword .popup::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .capword .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 0.1s;
+        animation: fadeIn 0.1s;
+    }
+
+    .wordentry {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+    }
+
+    .popup.dictionary {
+        line-height: 1.5rem;
+        padding: 20 20 20 0;
+        text-align: left;
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
     }
     </style>
 </head>
@@ -24,86 +89,95 @@
     <div id="app">
         <video controls preload="auto">
             <source src="../video.mp4" type="video/mp4"/>
-            <!-- <track label="English" kind="subtitles" srclang="en" src="captions.vtt" default/> -->
         </video>
         <div id="caption"></div>
     </div>
 
+    <script type="text/javascript" src="store.js"></script>
     <script type="text/javascript">
-        const captions = [{
-            begin: '00:00:00,000',
-            end: '00:00:03,230',
-            // script: 'And looking at the history a little bit,'
-            script: 'And looking at the history a little bit,'
-        },
-        {
-            begin: '00:00:03,530',
-            end: '00:00:10,340',
-            script: 'all the way back in 1981, was the first time the graphical'
-        },
-        {
-            begin: '00:00:10,420',
-            end: '00:00:14,940',
-            script: 'user interface and the operating system for supporting'
-        },
-        {
-            begin: '00:00:14,910',
-            end: '00:00:21,110',
-            script: 'graphical ui has been introduced in the system called Xerox star.'
-        },
-        {
-            begin: '00:00:21,120',
-            end: '00:00:28,840',
-            script: 'So it had a lot of these fantastic ideas that are currently used even after 40 years, right?'
-        },
-        {
-            begin: '00:00:28,850',
-            end: '00:00:35,650',
-            script: 'The idea of icons, folders, and ethernet, file servers, print servers'
-        },
-        {
-            begin: '00:00:35,660',
-            end: '00:00:38,640',
-            script: 'all these ideas came about in Xerox star.'
-        },
-        {
-            begin: '00:00:38,650',
-            end: '00:00:45,360',
-            script: 'And it is known that Steve Jobs stole a lot of the ideas from Xerox.'
-        }]
-
         const toMillis = time => parseFloat(time.split(':')[2].replace(',', '.'))
         const beginTimes = captions.map(e => toMillis(e.begin))
+        const makeDefinition = word => {
+            const wordInfo = dictionary[word][0]
+
+            const popup = document.createElement('div')
+            popup.classList.add('popup', 'dictionary')
+
+            const entry = ['word', 'pronunciation', 'pos'].reduce((acc, key) => {
+                const entryElement = document.createElement('div')
+                entryElement.innerText = wordInfo[key]
+
+                if (key === 'word') {
+                    entryElement.style.fontSize = 28
+                } else {
+                    entryElement.style.fontSize = 18
+                }
+
+                acc.appendChild(entryElement)
+                return acc
+            }, document.createElement('div'))
+            entry.classList.add('wordentry')
+
+            const ul = document.createElement('ul')
+            ul.style.margin = 'auto'
+            wordInfo.meanings.forEach((e, i) => {
+                const li = document.createElement('li')
+                li.innerHTML = `${e['definition']}: <i>${e['sentence']}</i>`
+                ul.appendChild(li)
+            })
+
+            popup.appendChild(entry)
+            popup.appendChild(ul)
+
+            return popup
+        }
+
         const video = document.querySelector('video')
         const captionDiv = document.querySelector('#caption')
         let subIdx = 0;
 
-        video.onloadeddata = () => {
-            captionDiv.style.width = video.videoWidth
-        }
+        video.onloadeddata = () => { captionDiv.style.width = video.videoWidth }
         video.ontimeupdate = () => {
             const EPSILON = 0.2
             const currentTime = video.currentTime;
             const curIdx = beginTimes.reduce((acc, cur, idx) => Math.abs(currentTime - cur) < EPSILON ? idx : acc , null)
-            subIdx = curIdx === null ? subIdx : curIdx
-            if (curIdx !== null) {
-                const words = captions[subIdx].script.split(' ')
-                const spans = words.map(word => {
-                    const span = document.createElement('span')
-                    span.innerText = word + ' '
-                    span.classList.add('capword')
-                    span.onclick = e => { console.log(word) }
-                    return span
-                })
 
-                captionDiv.innerHTML = ''
-                spans.forEach(span => { captionDiv.appendChild(span) })
+            if (curIdx === null) return
 
-                // captionDiv.innerText = captions[subIdx].script
-                console.log(captions[subIdx].script.split(' '))
-            }
+            subIdx = curIdx
+            const words = captions[subIdx].script.split(' ')
+            const wordDivs = words.map(word => {
+                // create word div element
+                const div = document.createElement('div')
+                div.classList.add('capword')
+                div.innerText = word
+
+                // create popup div element
+                let popup;
+                if (word in dictionary) {
+                    popup = makeDefinition(word)
+                } else {
+                    popup = document.createElement('div')
+                    popup.classList.add('popup')
+                    popup.innerText = word
+                }
+                div.appendChild(popup)
+
+                // add popup to div
+                div.onclick = e => {
+                    const show = document.querySelector('.show')
+                    // it could be the element itself. in that case don't toggle
+                    if (show !== null && show !== popup)
+                        show.classList.toggle('show')
+                    popup.classList.toggle('show')
+                }
+
+                return div
+            })
+
+            captionDiv.innerHTML = ''
+            wordDivs.forEach(div => { captionDiv.appendChild(div) })
         }
-
     </script>
 </body>
 </html>
