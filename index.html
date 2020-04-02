@@ -103,6 +103,7 @@
             const popup = document.createElement('div')
             popup.classList.add('popup', 'dictionary')
 
+            // create the top part of the popup. contains the word, pronunciation and pos(part of speech)
             const entry = ['word', 'pronunciation', 'pos'].reduce((acc, key) => {
                 const entryElement = document.createElement('div')
                 entryElement.innerText = wordInfo[key]
@@ -118,6 +119,7 @@
             }, document.createElement('div'))
             entry.classList.add('wordentry')
 
+            // create the bottom part of the popup. contains definitions
             const ul = document.createElement('ul')
             ul.style.margin = 'auto'
             wordInfo.meanings.forEach((e, i) => {
@@ -126,57 +128,76 @@
                 ul.appendChild(li)
             })
 
+            // add the word entry and definition elements to the container
             popup.appendChild(entry)
             popup.appendChild(ul)
 
-            return popup
+            return popup  // return the container
         }
 
         const video = document.querySelector('video')
         const captionDiv = document.querySelector('#caption')
         let subIdx = 0;
 
+        // set caption width when video is loaded
         video.onloadeddata = () => { captionDiv.style.width = video.videoWidth }
+            const make = idx => {
+                const words = captions[subIdx].script.split(' ')
+                const wordDivs = words.map(word => {
+                    // create word div element
+                    const div = document.createElement('div')
+                    div.classList.add('capword')
+                    div.innerText = word
+
+                    // create popup div element
+                    let popup;
+                    if (word in dictionary) {
+                        popup = makeDefinition(word)
+                    } else {
+                        popup = document.createElement('div')
+                        popup.classList.add('popup')
+                        popup.innerText = word
+                    }
+                    div.appendChild(popup)
+
+                    // add popup to div
+                    div.onclick = e => {
+                        const show = document.querySelector('.show')
+                        // it could be the element itself. in that case don't toggle
+                        if (show !== null && show !== popup)
+                            show.classList.toggle('show')
+                        popup.classList.toggle('show')
+                    }
+
+                    return div
+                })
+
+                captionDiv.innerHTML = ''
+                wordDivs.forEach(div => { captionDiv.appendChild(div) })
+            }
+
+        // update subtitles to the next one once the appropriate time comes
         video.ontimeupdate = () => {
+            console.log('timeupdate')
             const EPSILON = 0.2
-            const currentTime = video.currentTime;
+            const { currentTime } = video
             const curIdx = beginTimes.reduce((acc, cur, idx) => Math.abs(currentTime - cur) < EPSILON ? idx : acc , null)
 
-            if (curIdx === null) return
+            if (curIdx === null) return  // no changes to make. return
 
             subIdx = curIdx
-            const words = captions[subIdx].script.split(' ')
-            const wordDivs = words.map(word => {
-                // create word div element
-                const div = document.createElement('div')
-                div.classList.add('capword')
-                div.innerText = word
 
-                // create popup div element
-                let popup;
-                if (word in dictionary) {
-                    popup = makeDefinition(word)
-                } else {
-                    popup = document.createElement('div')
-                    popup.classList.add('popup')
-                    popup.innerText = word
-                }
-                div.appendChild(popup)
+            make(subIdx)
+        }
 
-                // add popup to div
-                div.onclick = e => {
-                    const show = document.querySelector('.show')
-                    // it could be the element itself. in that case don't toggle
-                    if (show !== null && show !== popup)
-                        show.classList.toggle('show')
-                    popup.classList.toggle('show')
-                }
+        video.onseeked = () => {
+            const { currentTime } = video
+            const gaussIdx = beginTimes.reduceRight((acc, cur, idx) =>
+                currentTime !== -1 && currentTime > cur ? idx : acc
+            , -1)
 
-                return div
-            })
-
-            captionDiv.innerHTML = ''
-            wordDivs.forEach(div => { captionDiv.appendChild(div) })
+            subIdx = gaussIdx
+            make(subIdx)
         }
     </script>
 </body>
