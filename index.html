@@ -111,7 +111,7 @@
                 // create the top part of the popup. contains the word, pronunciation and pos(part of speech)
                 const entry = ['word', 'pronunciation', 'pos'].reduce((acc, key) => {
                     const entryElement = document.createElement('div')
-                    entryElement.innerText = wordInfo[key]
+                    entryElement.innerText = wordInfo[key] || ' '
 
                     if (key === 'word') {
                         entryElement.style.fontSize = 30
