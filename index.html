@@ -11,7 +11,7 @@
         --text-color: #222;
     }
 
-    #caption {
+    .caption {
         color: var(--text-color);
         background-color: var(--popup-color);
         border-radius: 8px;
@@ -23,6 +23,7 @@
         height: auto;
         width: auto;
         top: 440px;
+        visibility: hidden;
     }
 
     .capword {
@@ -67,8 +68,8 @@
 
     .capword .show {
         visibility: visible;
-        -webkit-animation: fadeIn 0.1s;
-        animation: fadeIn 0.1s;
+        -webkit-animation: fadeIn 0.2s;
+        animation: fadeIn 0.2s;
     }
 
     .wordentry {
@@ -104,6 +105,13 @@
     .ccbutton:hover {
         background-color: #e3e3e3;
     }
+
+    .caption.show {
+        visibility: visible;
+        -webkit-animation: fadeIn 0.2s;
+        animation: fadeIn 0.2s;
+    }
+
     @-webkit-keyframes fadeIn {
         from {opacity: 0;}
         to {opacity: 1;}
@@ -120,12 +128,16 @@
         <video controls preload="auto">
             <source src="../video.mp4" type="video/mp4"/>
         </video>
-        <div id="caption"></div>
+        <div id="caption" class="caption show"></div>
         <button class="ccbutton" onclick="toggleCC()"><i style="font-size: 30px;" class="material-icons">closed_caption</i></button>
     </div>
 
     <script type="text/javascript" src="store.js"></script>
     <script type="text/javascript">
+        const video = document.querySelector('video')
+        const captionDiv = document.querySelector('#caption')
+        let subIdx = 0
+
         const toMillis = time => parseFloat(time.split(':')[2].replace(',', '.'))
         const beginTimes = captions.map(e => toMillis(e.begin))
         const toggleCC = () => {
@@ -213,10 +225,6 @@
             captionDiv.innerHTML = ''
             wordDivs.forEach(div => { captionDiv.appendChild(div) })
         }
-
-        const video = document.querySelector('video')
-        const captionDiv = document.querySelector('#caption')
-        let subIdx = 0
 
         // set caption width when video is loaded
         video.onloadeddata = () => { captionDiv.style.width = video.videoWidth }
