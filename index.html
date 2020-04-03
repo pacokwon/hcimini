@@ -3,9 +3,16 @@
     <title>Miniproject</title>
     <meta charset='utf-8'>
     <style>
+    :root {
+        --popup-height: 250px;
+        --popup-padding: 20px;
+        --popup-color: rgba(230, 230, 230, 0.7);
+        --text-color: #222;
+    }
+
     #caption {
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--text-color);
+        background-color: var(--popup-color);
         border-radius: 8px;
         font-size: 24px;
         height: 1.8em;
@@ -33,27 +40,28 @@
         font-weight: normal;
         visibility: hidden;
         width: 400px;
-        background-color: rgba(230, 230, 230, 0.7);
-        color: #111;
+        background-color: var(--popup-color);
+        color: var(--text-color);
         text-align: center;
         border-radius: 6px;
         padding: 8px 0;
         position: absolute;
         z-index: 1;
-        bottom: 125%;
+        bottom: 60px;
         left: 50%;
         margin-left: -200px;
     }
 
-    .capword .popup::after {
+    .arrow {
+        visibility: hidden;
         content: "";
         position: absolute;
-        top: 100%;
+        bottom: 50px;
         left: 50%;
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: #555 transparent transparent transparent;
+        border-color: var(--popup-color) transparent transparent transparent;
     }
 
     .capword .show {
@@ -64,16 +72,16 @@
 
     .wordentry {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         margin-bottom: 20px;
         margin-top: 10px;
     }
 
     .popup.dictionary {
         line-height: 1.5rem;
-        padding: 20 20 20 0;
+        padding: var(--popup-padding) var(--popup-padding) var(--popup-padding) 0;
         text-align: left;
-        height: 250px;
+        height: var(--popup-height);
         overflow: auto;
     }
 
@@ -104,6 +112,12 @@
     <script type="text/javascript">
         const toMillis = time => parseFloat(time.split(':')[2].replace(',', '.'))
         const beginTimes = captions.map(e => toMillis(e.begin))
+
+        const makeArrow = () => {
+            const arrow = document.createElement('span')
+            arrow.classList.add('arrow')
+            return arrow
+        }
         const makeDefinition = word => {
             const popup = document.createElement('div')
             popup.classList.add('popup', 'dictionary')
@@ -151,7 +165,7 @@
                 div.innerText = word
 
                 // create popup div element
-                let popup;
+                let popup
                 if (word in dictionary) {
                     popup = makeDefinition(word)
                 } else {
@@ -161,13 +175,17 @@
                 }
                 div.appendChild(popup)
 
+                const arrow = makeArrow()
+                div.appendChild(arrow)
+
                 // add popup to div
                 div.onclick = e => {
-                    const show = document.querySelector('.show')
+                    const show = document.querySelectorAll('.show')
                     // it could be the element itself. in that case don't toggle
-                    if (show !== null && show !== popup)
-                        show.classList.toggle('show')
+                    if (show !== null && show[0] !== popup)
+                        show.forEach(e => { e.classList.toggle('show') })
                     popup.classList.toggle('show')
+                    arrow.classList.toggle('show')
                 }
 
                 return div
@@ -179,7 +197,7 @@
 
         const video = document.querySelector('video')
         const captionDiv = document.querySelector('#caption')
-        let subIdx = 0;
+        let subIdx = 0
 
         // set caption width when video is loaded
         video.onloadeddata = () => { captionDiv.style.width = video.videoWidth }
