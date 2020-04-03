@@ -211,7 +211,7 @@
 
                 // add popup to div
                 div.onclick = e => {
-                    const show = document.querySelectorAll('.show')
+                    const show = document.querySelectorAll('.capword .show')
                     // it could be the element itself. in that case don't toggle
                     if (show !== null && show[0] !== popup)
                         show.forEach(e => { e.classList.toggle('show') })
