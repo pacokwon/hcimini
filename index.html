@@ -2,6 +2,7 @@
 <head>
     <title>Miniproject</title>
     <meta charset='utf-8'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
     :root {
         --popup-height: 250px;
@@ -89,6 +90,20 @@
         margin-bottom: 20px;
     }
 
+    .ccbutton {
+        display: block;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: white;
+        color: #212121;
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    .ccbutton:hover {
+        background-color: #e3e3e3;
+    }
     @-webkit-keyframes fadeIn {
         from {opacity: 0;}
         to {opacity: 1;}
@@ -106,18 +121,22 @@
             <source src="../video.mp4" type="video/mp4"/>
         </video>
         <div id="caption"></div>
+        <button class="ccbutton" onclick="toggleCC()"><i style="font-size: 30px;" class="material-icons">closed_caption</i></button>
     </div>
 
     <script type="text/javascript" src="store.js"></script>
     <script type="text/javascript">
         const toMillis = time => parseFloat(time.split(':')[2].replace(',', '.'))
         const beginTimes = captions.map(e => toMillis(e.begin))
-
+        const toggleCC = () => {
+            captionDiv.classList.toggle('show')
+        }
         const makeArrow = () => {
             const arrow = document.createElement('span')
             arrow.classList.add('arrow')
             return arrow
         }
+
         const makeDefinition = word => {
             const popup = document.createElement('div')
             popup.classList.add('popup', 'dictionary')
