@@ -131,7 +131,7 @@ const dictionary = {
         {
             word: 'look',
             pronunciation: '| lo͝ok |',
-            pos: 'verb',
+            pos: 'noun',
             meanings: [
                 {
                     definition: "an act of directing one's gaze in order to see someone or something",
