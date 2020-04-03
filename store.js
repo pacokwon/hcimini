@@ -79,5 +79,77 @@ const dictionary = {
                 }
             ]
         }
+    ],
+    little: [
+        {
+            word: 'lit·tle',
+            pronunciation: '| ˈlidl |',
+            pos: 'adjective',
+            meanings: [
+                {
+                    definition: 'small in size, amount, or degree (often used to convey an appealing diminutiveness or express an affectionate or condescending attitude)',
+                    sentence: "the plants will grow into little bushes | a little puppy dog | a boring little man | he's a good little worker."
+                }
+            ]
+        },
+        {
+            word: 'lit·tle',
+            pronunciation: '| ˈlidl |',
+            pos: 'determiner & pronoun',
+            meanings: [
+                {
+                    definition: '(a little) a small amount of',
+                    sentence: "we got a little help from my sister"
+                }
+            ]
+        }
+    ],
+    looking: [
+        {
+            word: 'look',
+            pronunciation: '| lo͝ok |',
+            pos: 'verb',
+            meanings: [
+                {
+                    definition: "direct one's gaze toward someone or something or in a specified direction",
+                    sentence: 'people were looking at him | they looked up as he came into the room'
+                },
+                {
+                    definition: '(look at/on) think of or regard in a specified way',
+                    sentence: 'I look at tennis differently from some coaches.'
+                },
+                {
+                    definition: 'have the appearance or give the impression of being',
+                    sentence: 'her father looked unhappy'
+                },
+                {
+                    definition: '(look to) rely on to do or provide something',
+                    sentence: 'she will look to you for help.'
+                }
+            ]
+        },
+        {
+            word: 'look',
+            pronunciation: '| lo͝ok |',
+            pos: 'verb',
+            meanings: [
+                {
+                    definition: "an act of directing one's gaze in order to see someone or something",
+                    sentence: 'let me get a closer look.'
+                },
+                {
+                    definition: 'the appearance of someone or something, especially as expressing a particular quality',
+                    sentence: 'the bedraggled look of the village.'
+                },
+                {
+                    definition: 'have the appearance or give the impression of being',
+                    sentence: 'her father looked unhappy'
+                },
+                {
+                    definition: '(look to) rely on to do or provide something',
+                    sentence: 'she will look to you for help.'
+                }
+            ]
+        }
     ]
 }
