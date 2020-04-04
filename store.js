@@ -311,221 +311,71 @@ const dictionary = {
             ]
         }
     ],
-    fantastic : [
-        {
-            word: 'fantastic',
-            pronunciation: '| fænˈtæstɪk |',
-            pos : "adjective",
-            meanings: [
-                {
-                    definition:'extremely good; excellent',
-                    sentence: "He's done a fantastic job."
-                },
-                {
-                    definition:'very large; larger than you expected',
-                    sentence: "The response to our appeal was fantastic."
-                },
-                {
-                    definition:'strange and showing a lot of imagination',
-                    sentence: "fantastic dreams of forests and jungles."
-                },
-                {
-                    definition:'impossible to put into practice; impossible to believe',
-                    sentence: "It may sound rather fantastic, but it's the truth."
-                }
-            ]
-        }
-    ],
-    ideas : [
+    ideas: [
         {
             word: 'idea',
             pronunciation: '| aɪˈdɪə |',
-            pos : "noun",
+            pos: 'noun',
             meanings: [
                 {
-                    definition:'a plan, thought or suggestion, especially about what to do in a particular situation',
-                    sentence: "That's a great idea!"
-                },
-                {
-                    definition:'a picture or an impression in your mind of what somebody/something is like',
-                    sentence: "The brochure should give you a good idea of the hotel."
-                },
-                {
-                    definition:'an opinion or a belief about something',
-                    sentence: " He has some very strange ideas about education."
-                },
-                {
-                    definition:'a feeling that something is possible or is true',
-                    sentence: "Where on earth did you get that idea?"
+                    definition: 'a plan, thought or suggestion, especially about what to do in a particular situation',
+                    sentence: "The surprise party was Jane's idea."
                 }
             ]
         }
     ],
-    currently : [
+    'come about': [
         {
-            word: 'currently',
-            pronunciation: '| ˈkʌrəntli |',
-            pos : "adverb",
+            word: 'come about',
+            pos: 'phrasal verb',
             meanings: [
                 {
-                    definition:'​at the present time',
-                    sentence: "All the options are currently available."
+                    definition:  'to happen',
+                    sentence: "Can you tell me how the accident came about?"
                 }
             ]
         }
     ],
-    used : [
-        {
-            word: 'currently',
-            pronunciation: '| ˈkʌrəntli |',
-            pos : "adverb",
+    
+    'Steve Jobs': [
+        {   
+            word: "Steve Paul Jobs(1955 – 2011)",
+            pronunciation: '| dʒɒbz |',
             meanings: [
                 {
-                    definition:'​at the present time',
-                    sentence: "All the options are currently available."
+                    definition: ' an American business magnate, industrial designer, investor, and media proprietor.',
+                },
+                {
+                    definition: ' Pioneer of the personal computer revolution with Steve Wozniak'
+                },
+                {
+                    definition: 'Co-creator of the Macintosh, iPod, iPhone, iPad, and first Apple Stores'
                 }
             ]
         }
     ],
-    used : [
+    
+    stole: [
         {
-            word: 'used',
-            pronunciation: '| juːst |',
-            pos : "adjective",
+            word: 'steal',
+            pronunciation: '| stiːl |',
+            pos: 'noun',
             meanings: [
                 {
-                    definition:'familiar with something because you do it or experience it often',
-                    sentence: "used to doing something I'm not used to eating so much at lunchtime."
+                    definition:  'to take something from a person, shop, etc. without permission and without intending to return it or pay for it.',
+                    sentence: "I'll report you to the police if I catch you stealing again."
                 }
             ]
         }
     ],
-    years : [
+    lot:  [
         {
-            word: 'year',
-            pronunciation: '| /jɪə(r)/ |',
-            pos : "noun",
+            pronunciation: '| lɒt |',
+            pos: 'determiner',
             meanings: [
                 {
-                    definition:'the period from 1 January to 31 December, that is 365 or 366 days, divided into 12 months',
-                    sentence: "next/last year"
-                },
-                {
-                    definition:'a period of twelve months, measured from any particular time',
-                    sentence: "She gave up teaching three years ago."
-                },
-                {
-                    definition:'age; time of life',
-                    sentence: "He was 14 years old when it happened."
-                },
-                {
-                    definition:'a period of twelve months connected with a particular activity',
-                    sentence: "the school year"
-                }
-            ]
-        }
-    ],
-    folders : [
-        {
-            word: 'icon',
-            pronunciation: '| ˈaɪkɒn |',
-            pos : "noun",
-            meanings: [
-                {
-                    definition:'a small symbol on a computer or smartphone screen that represents a program or a file',
-                    sentence: "Click on the printer icon with the mouse."
-                },
-                {
-                    definition:'a famous person or thing that people admire and see as a symbol of a particular idea, way of life, etc.',
-                    sentence: "Madonna and other pop icons of the 1980s"
-                }
-            ]
-        }
-    ],
-    ethernet : [
-        {
-            word: 'ethernet',
-            pronunciation: '| ˈiːθənet |',
-            pos : "noun",
-            meanings: [
-                {
-                    definition:'​a system for connecting a number of computer systems to form a network',
-                    sentence: ""
-                }
-            ]
-        }
-    ],
-    file : [
-        {
-            word: 'file',
-            pronunciation: '| faɪl |',
-            pos : "noun",
-            meanings: [
-                {
-                    definition:'a box or folded piece of card for keeping loose papers together and in order',
-                    sentence: "a box file"
-                },
-                {
-                    definition:'a collection of information stored together in a computer, under a particular name',
-                    sentence: "The service converts video files from one format to another"
-                },
-                {
-                    definition:'a file and the information it contains, for example about a particular person or subject',
-                    sentence: "The film is based on real FBI case files."
-                },
-                {
-                    definition:'(Canadian English) a number of issues and responsibilities connected with a particular government policy area',
-                    sentence: "The politician's handling of flood, infrastructure and education files has been questioned."
-                }
-            ]
-        }
-    ],
-    servers : [
-        {
-            word: 'server',
-            pronunciation: '| ˈsɜːvə(r) |',
-            pos : "noun",
-            meanings: [
-                {
-                    definition:' a computer program that controls or supplies information to several computers connected in a network; the main computer on which this program is run',
-                    sentence: ""
-                },
-                {
-                    definition:'a player who is serving, for example in tennis',
-                    sentence: ""
-                },
-                {
-                    definition:'a kitchen utensil (= tool) used for putting food onto somebody’s plate',
-                    sentence: "salad servers"
-                },
-                {
-                    definition:'(North American English) a person who serves food in a restaurant; a waiter or waitress',
-                    sentence: ""
-                }
-            ]
-        }
-    ],
-    print : [
-        {
-            word: 'print',
-            pronunciation: '| prɪnt |',
-            pos : "verb",
-            meanings: [
-                {
-                    definition:'to produce letters, pictures, etc. on paper using a machine that puts ink (= coloured liquid) on the surface',
-                    sentence: "I'm printing a copy of the document for you."
-                },
-                {
-                    definition:'to produce books, newspapers, etc. by printing them in large quantities',
-                    sentence: "They printed 30 000 copies of the book."
-                },
-                {
-                    definition:'to publish something in printed form',
-                    sentence: "The photo was printed in all the national newspapers."
-                },
-                {
-                    definition:'to produce a photograph on paper from a digital file or from film',
-                    sentence: "Photographs can be printed from a digital file or from a negative."
+                    definition:  'a large number or amount',
+                    sentence: "Have some more cake. There's lots left."
                 }
             ]
         }
