@@ -78,6 +78,25 @@ const dictionary = {
                     sentence: 'a history of the labor movement.'
                 }
             ]
+        },
+        {
+            word: 'his·to·ry',
+            pronunciation: "| 'hist(ə)rē |",
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '역사',
+                    sentence: 'a turning point in human history; 인류 역사에 있어서 하나의 전환점'
+                },
+                {
+                    definition: '(특정 장소·주제 등과 관련된) 역사',
+                    sentence: 'the history of Ireland / democracy / popular music; 아일랜드/민주주의/대중음악의 역사'
+                },
+                {
+                    definition: '(학과목으로서의) 역사(학)',
+                    sentence: 'a history teacher; 역사 교사'
+                }
+            ]
         }
     ],
     little: [
@@ -95,6 +114,21 @@ const dictionary = {
         {
             word: 'lit·tle',
             pronunciation: '| ˈlidl |',
+            pos: '형용사',
+            meanings: [
+                {
+                    definition: '(크기규모가) 작은, 소규모의',
+                    sentence: "a little house; 작은 집"
+                },
+                {
+                    definition: '형용사 뒤에 써서 특히 남을 아랫사람 다루듯 하면서 애정혐오를 나타냄',
+                    sentence: "The poor little thing! It’s lost its mother.;아이구 가련한 것! 걔가 엄마를 잃어버렸대요."
+                }
+            ]
+        },
+        {
+            word: 'lit·tle',
+            pronunciation: '| ˈlidl |',
             pos: 'determiner & pronoun',
             meanings: [
                 {
@@ -102,7 +136,19 @@ const dictionary = {
                     sentence: "we got a little help from my sister"
                 }
             ]
+        },
+        {
+            word: 'lit·tle',
+            pronunciation: '| ˈlidl |',
+            pos: '한정사 & 대명사',
+            meanings: [
+                {
+                    definition: '(불가산 명사와 함께 쓰여) 거의 없는[아닌]',
+                    sentence: "There was little doubt in my mind.; 내 마음속에 의심은 거의 들지 않았다."
+                }
+            ]
         }
+
     ],
     looking: [
         {
@@ -185,6 +231,22 @@ const dictionary = {
                 }
 
             ]
+        },
+        {
+            word: 'in·ter·face',
+            pronunciation: "|ˈɪn.tə.feɪs|",
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '컴퓨터 인터페이스',
+                    sentence: 'the user interface; 사용자 인터페이스'
+                },
+                {
+                    definition: '접점(두 가지 주제시스템 등이 서로 만나서 영향을 주고받는 영역)',
+                    sentence: 'the interface between manufacturing and sales; 제조와 판매 사이의 접점'
+                }
+
+            ]
         }
     ],
     'operating system': [
@@ -232,7 +294,18 @@ const dictionary = {
                     sentence: 'User interface (UI) design is the process of making interfaces in software or computerized devices with a focus on looks or style.'
                 }
             ]
-        }
+        },
+        {
+            word: 'u·i',
+            pronunciation: "| uː.i |",
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '컴퓨터 사용자 인터페이스 ((사용자가 컴퓨터와 대화하기 위한 기호나 명령 체계))',
+                    sentence: ''
+                }
+            ]
+        },
     ],
     introduced: [
         {
@@ -279,6 +352,17 @@ const dictionary = {
                     sentence: 'a Xerox machine'
                 }
             ]
+        },
+        {
+            word: 'Xe·rox',
+            pronunciation: "| ˈzɪə.rɒks |",
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '(문서의) 복사, 제록스',
+                    sentence: 'a Xerox machine; 제록스 복사기'
+                }
+            ]
         }
     ],
     star: [
@@ -290,6 +374,17 @@ const dictionary = {
                 {
                     definition: 'a very large ball of burning gas in space that is usually seen from the earth as a point of light in the sky at night',
                     sentence: 'Stars twinkled above them as they lay on the hill.'
+                }
+            ]
+        },
+        {
+            word: 's·tar',
+            pronunciation: "| stɑːr |",
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '별, 항성',
+                    sentence: 'There was a big moon and hundreds of stars were shining overhead.; 머리 위로 커다란 달과 수많은 별들이 빛나고 있었다.'
                 }
             ]
         }
@@ -307,6 +402,21 @@ const dictionary = {
                 {
                     definition: 'to use a phone to talk to someone',
                     sentence: 'Do you think we should call the police?'
+                }
+            ]
+        },
+        {
+            word: 'call',
+            pronunciation: "| kɔːl |",
+            pos: '동사',
+            meanings: [
+                {
+                    definition: '이름을 지어주다, …라고 부르다[칭하다]',
+                    sentence: "They decided to call the baby Mark; 그들은 아기 이름을 마크로 짓기로 결정했다."
+                },
+                {
+                    definition: '(전화를 걸어) 부르다[오라고 하다]',
+                    sentence: 'to call the fire department / the police / a doctor / an ambulance; 소방대/경찰/의사/구급차를 부르다'
                 }
             ]
         }
@@ -332,6 +442,25 @@ const dictionary = {
                 {
                     definition:'impossible to put into practice; impossible to believe',
                     sentence: "It may sound rather fantastic, but it's the truth."
+                }
+            ]
+        },
+        {
+            word: 'fantastic',
+            pronunciation: '| fænˈtæstɪk |',
+            pos: "형용사",
+            meanings: [
+                {
+                    definition: '기막히게 좋은, 환상적인',
+                    sentence: "a fantastic beach in Australia; 오스트레일리아에 있는 환상적인 해변"
+                },
+                {
+                    definition: '엄청난, 굉장한',
+                    sentence: "The response to our appeal was fantastic.; 우리의 호소에 대한 반응이 굉장했다."
+                },
+                {
+                    definition: '기상천외한, 기이한',
+                    sentence: "fantastic dreams of forests and jungles; 숲과 정글이 나오는 기이한 꿈들"
                 }
             ]
         }
@@ -368,21 +497,19 @@ const dictionary = {
             pos : "adverb",
             meanings: [
                 {
-                    definition:'​at the present time',
+                    definition:'at the present time',
                     sentence: "All the options are currently available."
                 }
             ]
-        }
-    ],
-    used : [
+        },
         {
             word: 'currently',
             pronunciation: '| ˈkʌrəntli |',
-            pos : "adverb",
+            pos: "부사",
             meanings: [
                 {
-                    definition:'​at the present time',
-                    sentence: "All the options are currently available."
+                    definition: '현재, 지금',
+                    sentence: "The hourly charge is currently £35.; 시간당 수수료는 현재 35파운드이다."
                 }
             ]
         }
@@ -440,6 +567,21 @@ const dictionary = {
                     sentence: "Madonna and other pop icons of the 1980s"
                 }
             ]
+        },
+        {
+            word: 'icon',
+            pronunciation: '| ˈaɪkɒn |',
+            pos: "명사",
+            meanings: [
+                {
+                    definition: '(컴퓨터 화면의) 아이콘',
+                    sentence: "Click on the printer icon with the mouse.; 마우스로 프린터 아이콘을 클릭하세요."
+                },
+                {
+                    definition: '(특정한 사상·생활 방식 등의 상징으로 여겨지는) 우상[아이콘]',
+                    sentence: "Madonna and other pop icons of the 1980s; 마돈나와 1980년대의 다른 팝 아이콘들"
+                }
+            ]
         }
     ],
     ethernet : [
@@ -449,7 +591,18 @@ const dictionary = {
             pos : "noun",
             meanings: [
                 {
-                    definition:'​a system for connecting a number of computer systems to form a network',
+                    definition:'a system for connecting a number of computer systems to form a network',
+                    sentence: ""
+                }
+            ]
+        },
+        {
+            word: 'ethernet',
+            pronunciation: '| ˈiːθənet |',
+            pos: "명사",
+            meanings: [
+                {
+                    definition: '이더넷(여러 대의 컴퓨터로 네트워크를 형성하는 시스템)',
                     sentence: ""
                 }
             ]
@@ -541,7 +694,18 @@ const dictionary = {
                     sentence: "The surprise party was Jane's idea."
                 }
             ]
-        }
+        },
+        {
+            word: 'idea',
+            pronunciation: '| aɪˈdɪə |',
+            pos: '명사',
+            meanings: [
+                {
+                    definition: '(특히 특정 상황에서 해야 할 일에 대한) 발상[생각/방안/계획]',
+                    sentence: "It would be a good idea to call before we leave.; 우리가 떠나기 전에 전화를 하는 게 좋을 것 같다."
+                }
+            ]
+        },
     ],
     'came about': [
         {
@@ -555,7 +719,6 @@ const dictionary = {
             ]
         }
     ],
-
     'Steve Jobs': [
         {
             word: "Steve Paul Jobs(1955 – 2011)",
@@ -571,9 +734,17 @@ const dictionary = {
                     definition: 'Co-creator of the Macintosh, iPod, iPhone, iPad, and first Apple Stores'
                 }
             ]
+        },
+        {
+            word: "Steve Paul Jobs(1955 – 2011)",
+            pronunciation: '| dʒɒbz |',
+            meanings: [
+                {
+                    definition: '스티브 잡스(Steven Paul Jobs), 기업인; 출생지: 미국; 1955~2011',
+                }
+            ]
         }
     ],
-
     stole: [
         {
             word: 'steal',
