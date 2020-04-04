@@ -587,8 +587,9 @@ const dictionary = {
             ]
         }
     ],
-    lot:  [
+    lot: [
         {
+            word: 'lot',
             pronunciation: '| lɒt |',
             pos: 'determiner',
             meanings: [
