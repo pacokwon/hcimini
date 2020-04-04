@@ -11,6 +11,21 @@
         --text-color: #222;
     }
 
+    #app {
+        background-image: url('template.png');
+        width: 960px;
+        height: 628px;
+        background-size: contain;
+        margin: 0 auto;
+        border-radius: 6px;
+    }
+
+    video {
+        position: absolute;
+        top: 53px;
+        outline: none;
+    }
+
     .caption {
         color: var(--text-color);
         background-color: var(--popup-color);
@@ -22,7 +37,7 @@
         position: absolute;
         height: auto;
         width: auto;
-        top: 440px;
+        top: 480px;
         visibility: hidden;
         pointer-events: none;
     }
@@ -95,17 +110,19 @@
 
     .ccbutton {
         display: block;
+        position: absolute;
+        top: 593px;
         border: none;
         outline: none;
         cursor: pointer;
-        background-color: white;
-        color: #212121;
+        background-color: transparent;
+        color: #eee;
         border-radius: 50%;
         padding: 5px;
     }
 
     .ccbutton:hover {
-        background-color: #e3e3e3;
+        color: #bbb;
     }
 
     .caption.show {
