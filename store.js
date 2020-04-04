@@ -37,7 +37,7 @@ const captions = [
     {
         begin: '00:00:38,650',
         end: '00:00:45,360',
-        script: 'And it is known that Steve Jobs stole a lot of the ideas from Xerox.'
+        script: 'And it is known that Steve Jobs stole a lot of the ideas from Xerox'
     }
 ]
 
@@ -425,7 +425,7 @@ const dictionary = {
             ]
         }
     ],
-    folders : [
+    icons : [
         {
             word: 'icon',
             pronunciation: '| ˈaɪkɒn |',
@@ -526,6 +526,75 @@ const dictionary = {
                 {
                     definition:'to produce a photograph on paper from a digital file or from film',
                     sentence: "Photographs can be printed from a digital file or from a negative."
+                }
+            ]
+        }
+    ],
+    ideas: [
+        {
+            word: 'idea',
+            pronunciation: '| aɪˈdɪə |',
+            pos: 'noun',
+            meanings: [
+                {
+                    definition: 'a plan, thought or suggestion, especially about what to do in a particular situation',
+                    sentence: "The surprise party was Jane's idea."
+                }
+            ]
+        }
+    ],
+    'come about': [
+        {
+            word: 'come about',
+            pos: 'phrasal verb',
+            meanings: [
+                {
+                    definition:  'to happen',
+                    sentence: "Can you tell me how the accident came about?"
+                }
+            ]
+        }
+    ],
+
+    'Steve Jobs': [
+        {
+            word: "Steve Paul Jobs(1955 – 2011)",
+            pronunciation: '| dʒɒbz |',
+            meanings: [
+                {
+                    definition: ' an American business magnate, industrial designer, investor, and media proprietor.',
+                },
+                {
+                    definition: ' Pioneer of the personal computer revolution with Steve Wozniak'
+                },
+                {
+                    definition: 'Co-creator of the Macintosh, iPod, iPhone, iPad, and first Apple Stores'
+                }
+            ]
+        }
+    ],
+
+    stole: [
+        {
+            word: 'steal',
+            pronunciation: '| stiːl |',
+            pos: 'noun',
+            meanings: [
+                {
+                    definition:  'to take something from a person, shop, etc. without permission and without intending to return it or pay for it.',
+                    sentence: "I'll report you to the police if I catch you stealing again."
+                }
+            ]
+        }
+    ],
+    lot:  [
+        {
+            pronunciation: '| lɒt |',
+            pos: 'determiner',
+            meanings: [
+                {
+                    definition:  'a large number or amount',
+                    sentence: "Have some more cake. There's lots left."
                 }
             ]
         }
