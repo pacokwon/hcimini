@@ -7,6 +7,8 @@ const beginTimes = captions.map(e => toMillis(e.begin))
 const dictionaryWords = Object.keys(dictionary)
 const toggleCC = () => {
     captionDiv.classList.toggle('show')
+    const show = document.querySelectorAll('.capword .show')
+    show.forEach(e => { e.classList.toggle('show') })
 }
 const makeArrow = () => {
     const arrow = document.createElement('span')
