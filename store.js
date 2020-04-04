@@ -543,7 +543,7 @@ const dictionary = {
             ]
         }
     ],
-    'come about': [
+    'came about': [
         {
             word: 'come about',
             pos: 'phrasal verb',
